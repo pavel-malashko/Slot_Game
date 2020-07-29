@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "main": "./index.html",
+  "homepage": "https://pavel-malashko.github.io/Slot_Game",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "howler": "^2.2.0",
@@ -19,6 +21,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.3",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
     "tslint": "^6.1.2",
