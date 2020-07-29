@@ -1,6 +1,7 @@
 import Pixi from 'constants/pixi.const';
+import { Howl } from 'howler';
 import { backout, lerp } from 'util/util';
-import { pathImage } from '../constants/path.const';
+import { pathImage, pathSound } from '../constants/path.const';
 import { REEL_WIDTH, SYMBOL_SIZE } from '../constants/size.const';
 import { IReel, ITween } from './../models/models';
 import { tweenTo } from './../util/util';
@@ -131,6 +132,7 @@ export default class App {
                 }
                 if (phase === 1) {
                     t.reel.position = t.target;
+                    this._callSoundFall();
                     if (i + 1 === this._tweening.length) {
                         this.footerContainer.footer.visible = true;
                     }
@@ -144,5 +146,12 @@ export default class App {
                 this._tweening.splice(this._tweening.indexOf(item), 1);
             }
         });
+    }
+    private _callSoundFall(): void{
+        const idTrack = Math.floor(Math.random() +1 * 5);
+        const sound = new Howl({
+            src: [`${pathSound}/Reel_Stop_${idTrack}.mp3`]
+        });
+        sound.play();
     }
 }
